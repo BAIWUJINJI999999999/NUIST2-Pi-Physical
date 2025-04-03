@@ -1,5 +1,6 @@
 # Author: Yiwen Zhou
 # Date: 3/4/2025
+# Description: quiz about python
 
 import RPi.GPIO as GPIO
 import time
@@ -29,12 +30,20 @@ def quiz():
     score = 0
 
     for i in range(len(questions)):
+        GPIO.output(17, GPIO.LOW)
+        GPIO.output(18, GPIO.LOW)
         user_answer = input(questions[i]).strip().lower()
         if user_answer == answers[i]:
             print("Correct!")
+            GPIO.output(17, GPIO.HIGH)
             score += 1
         else:
             print("Incorrect!")
+            GPIO.output(18, GPIO.HIGH)
+
+        time.sleep(1)
+
+        GPIO.cleanup()
 
     print("\nQuiz completed!")
     print(f"You got {score}/{len(quesions)} questions correct.")
