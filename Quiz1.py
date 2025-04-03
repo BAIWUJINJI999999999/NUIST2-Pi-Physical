@@ -1,3 +1,5 @@
+# Author: Yiwen Zhou
+# Date: 3/4/2025
 # NUIST Quiz Game in Python
 def quiz():
    print("Welcome to the Animal Quiz!")
